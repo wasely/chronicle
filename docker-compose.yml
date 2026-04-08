@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  chronicle-bot:
+    build: .
+    env_file:
+      - .env
+    environment:
+      SQLITE_PATH: /data/chronicle.db
+    volumes:
+      - chronicle_data:/data
+    restart: unless-stopped
+
+volumes:
+  chronicle_data:
